@@ -1,10 +1,13 @@
 # Use a more recent Ubuntu base image
-FROM node:latest
+FROM ubuntu:latest
 
 # Install required software
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
-    nodejs npm default-jdk git && \
+    software-properties-common openjdk-18-jdk openjdk-18-jre git curl && \
+    curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get update && apt-get install -y \
+    nodejs && \
     npm install -g npm@latest && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
