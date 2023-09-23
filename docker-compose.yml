@@ -1,0 +1,10 @@
+version: '3'
+services:
+  boing:
+    build: .
+    container_name: boing
+    ports:
+      - "6567:6567/udp"
+      - "6567:6567/tcp"
+    volumes:
+      - "./data:/boing/data"
