@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 
 let execute = async function (interaction) {
+    
     const mserver = require("../mserver.js");
     const { loadSessionData, data } = require("../globals.js")
 
@@ -10,7 +11,7 @@ let execute = async function (interaction) {
         line => line,
     );
     // Get server uptime information.
-    loadSessionData();
+    await loadSessionData();
     let msSinceFirstStart = Date.now() - data.SESSION_DATA.uptime.firstStarted;
     let percentTimeRunning = (data.SESSION_DATA.uptime.msRunning / msSinceFirstStart) * 100;
     percentTimeRunning = percentTimeRunning.toFixed(2) + "%";
