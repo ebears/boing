@@ -37,16 +37,9 @@ function loadSettings() {
 
 function saveSettings() { fs.writeFileSync(SETTINGS_FILE, JSON.stringify(module.exports.data.SETTINGS, null, 4)) }
 
-// In globals.js
 function loadSessionData() {
-    return new Promise((resolve, reject) => {
-        if (fs.existsSync(DATA_FILE)) {
-            module.exports.data.SESSION_DATA = JSON.parse(fs.readFileSync(DATA_FILE).toString());
-            resolve();
-        } else {
-            reject(new Error("Failed to load session data."));
-        }
-    });
+    if (fs.existsSync(DATA_FILE))
+        module.exports.data.SESSION_DATA = JSON.parse(fs.readFileSync(DATA_FILE).toString());
 }
 
 function saveSessionData() { fs.writeFileSync(DATA_FILE, JSON.stringify(module.exports.data.SESSION_DATA, null, 4)) }
