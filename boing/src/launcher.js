@@ -68,18 +68,12 @@ async function setup() {
             message: "Please enter your bot's token.",
         },
         {
-            type: "input",
-            name: "prefix",
-            message: "Please enter a prefix. (default is 'b')",
-            initial: "b",
-        },
-        {
-            type: "input",
+            type: "numeral",
             name: "clientId",
             message: "Please enter your bot's client ID.",
         },
         {
-            type: "input",
+            type: "numeral",
             name: "guildId",
             message: "Please enter your server's ID.",
         },
